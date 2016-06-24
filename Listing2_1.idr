@@ -16,9 +16,7 @@ average str = answer where
     cast totalLength / cast numWords
 
 showAverage : String -> String
-showAverage str =
-  "The average word length is: " ++
-  show (average str) ++ "\n"
+showAverage str = "The average word length is: " ++ show (average str) ++ "\n" 
 
 main : IO ()
 main = repl "Enter a string: " showAverage
