@@ -28,6 +28,7 @@ main = repl "Enter a string: " showAverage
 -- sum : Num a => List a -> a
 -- length : List a -> Nat
 -- length : String -> Nat
+-- show : Show a => a -> String
 
 -- Specific to Idris
 -- cast : Cast from to => from -> to
