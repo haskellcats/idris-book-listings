@@ -39,3 +39,27 @@ question9B = repl "Enter a sentence: " crunch where
   crunch str =
     let (wordCount, charCount) = counts str in
     unlines ["Words: " ++ show wordCount, "Chars: " ++ show charCount, ""]
+
+
+
+---- Alternate implementations for palindrome
+
+||| S combinator
+S : (a -> b -> c) -> (a -> b) -> a -> c
+S f g x = f x (g x)
+
+-- using the S combinator
+palindrome' : String -> Bool
+palindrome' = S (==) reverse
+
+-- S is the proper <*> for functions... though it's not declared in idris prelude
+Functor (\t => a -> t) where
+  map = (.)
+
+Applicative (\t => a -> t) where
+  pure = const
+  (<*>) = S
+
+-- using <*>
+palindrome'' : String -> Bool
+palindrome'' = (==) <*> reverse
