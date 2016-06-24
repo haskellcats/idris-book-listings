@@ -38,7 +38,10 @@ question9B : IO ()
 question9B = repl "Enter a sentence: " crunch where
   crunch str =
     let (wordCount, charCount) = counts str in
-    unlines ["Words: " ++ show wordCount, "Chars: " ++ show charCount, ""]
+    unlines
+      ["Words: " ++ show wordCount
+      ,"Chars: " ++ show charCount
+      ,""]
 
 
 
