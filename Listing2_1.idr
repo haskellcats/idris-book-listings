@@ -18,6 +18,8 @@ average str = answer where
 showAverage : String -> String
 showAverage str = "The average word length is: " ++ show (average str) ++ "\n" 
 
+-- run this in the idris repl with
+-- :exec main
 main : IO ()
 main = repl "Enter a string: " showAverage
 
