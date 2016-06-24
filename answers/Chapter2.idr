@@ -7,14 +7,14 @@ question3 : String -> Bool
 question3 = palindrome . toLower
 
 question4 : String -> Bool
-question4 str with (length str `isLTE` 10)
-  | Yes lte  = False
-  | No contr = question3 str
+question4 str = case length str `isLTE` 10 of
+  Yes lte  => False
+  No contr => question3 str
 
 question5 : Nat -> String -> Bool
-question5 threshold str with (length str `isLTE` threshold)
-  | Yes lte  = False
-  | No contr = question3 str
+question5 threshold str = case length str `isLTE` threshold of
+  Yes lte  => False
+  No contr => question3 str
 
 question4' : String -> Bool
 question4' = question5 10
