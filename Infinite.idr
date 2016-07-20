@@ -121,3 +121,11 @@ natNotFinite (MkIsFinite injToSurj) = case injToSurj hilbert hilbertInj 0 of
 finNotInf : IsFinite t -> IsInfinite t -> Void
 finNotInf (MkIsFinite injToSurj) (MkIsInfinite f inj target missed) =
   missed (injToSurj f inj target)
+
+mapL : (a -> b) -> Either a c -> Either b c
+mapL f (Left x) = Left (f x)
+mapL _ (Right y) = Right y
+
+||| It's inconsistent for any type to be neither non-infinite or non-finite.
+aintNotNeither : (Either (IsInfinite t -> Void) (IsFinite t -> Void) -> Void) -> Void
+aintNotNeither f = f (Right (f . mapL finNotInf . Left))
