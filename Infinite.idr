@@ -126,7 +126,7 @@ mapL : (a -> b) -> Either a c -> Either b c
 mapL f (Left x) = Left (f x)
 mapL _ (Right y) = Right y
 
-||| It's inconsistent for any type to be neither non-infinite or non-finite.
+||| It's inconsistent for any type to be neither non-infinite nor non-finite.
 |||
 ||| Good luck with this one! >:)
 aintNotNeither : (Either (IsInfinite t -> Void) (IsFinite t -> Void) -> Void) -> Void
