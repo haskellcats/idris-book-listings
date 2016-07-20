@@ -73,7 +73,7 @@ analyze f True True prf1 prf2 = CollideB False True (trueNotFalse . sym) (trans 
 
 ||| Bool being infinite would be a contradiction
 ||| there are two ways an IsInfinite Bool proof could make no sense:
-
+|||
 ||| 1. if the injection is a surjection, then the missed target isn't really missed
 ||| 2. if the injection is colliding, then it's not really an injection after all
 boolNotInf : IsInfinite Bool -> Void
